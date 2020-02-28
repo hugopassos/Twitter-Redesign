@@ -1,0 +1,40 @@
+@import "~bootstrap/scss/bootstrap";
+
+.gr-background{
+  background-color: #f5f9fa;
+}
+
+.label-inside{
+  padding-left: 14px;
+  padding-top: 4px;
+  margin-bottom: -2px;
+  background-color: #f5f9fa;
+}
+
+.grey-input{
+  height: 30px;
+  background-color: #f5f9fa;
+  border-bottom-color: #787878;
+}
+
+.grey-input:focus{
+  outline: none;
+}
+
+.btn-round-blue{
+  border-radius: 25px 25px 25px 25px;
+  height: 50px;
+  background-color: #a2d0fa;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+}
+
+.a-light-blue{
+  color: #53a7f5;
+  font-size: 15px;
+}
+
+.a-light-blue:hover{
+  color: #53a7f5;
+}
