@@ -1,11 +1,24 @@
 <div class="container text-center">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-12 mt-4">
-      <img width="42" src="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Twitter-128.png" alt="logo">
+      <img width="38" src="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Twitter-128.png" alt="logo">
     </div>
-    <div class="col-md-12 mt-4 mb-2">
-      <h4 class="font-weight-bold">Log in to Twitter</h4>
-      <%= form_for %>
+    <div class="col-md-6 mt-4">
+      <h4 class="font-weight-bold">Sign up to Twitter</h4>
+      <%= form_for(@user) do |f| %>
+        <div class="row justify-content-left gr-background mt-4 mb-4">
+          <%= f.label :username, class: 'col-md-12 text-left label-inside' %>
+          <%= f.text_field :username, class: 'col-md-12 grey-input border-top-0 border-right-0 border-left-0' %>
+        </div>
+        <div class="row justify-content-left gr-background mt-4 mb-4">
+          <%= f.label :full_name, class: 'col-md-12 text-left label-inside' %>
+          <%= f.text_field :full_name, class: 'col-md-12 grey-input border-top-0 border-right-0 border-left-0' %>
+        </div>
+        <%= f.submit 'Sign up', class: 'col-md-12 btn-round-blue' %>
+      <% end %>
+      <div class="row justify-content-center mt-4">
+        <a class="col-md-4 a-light-blue" href="<%= login_path %>">Log in to Twitter</a>
+      </div>
     </div>
   </div>
 </div>
