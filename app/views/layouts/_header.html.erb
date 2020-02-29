@@ -1,14 +1,18 @@
-<nav class="navbar navbar-fixed-top navbar-inverse">
-
-</nav>
-<div class="row">
-  <div class="col-md-2">
-    <%=  %>
+<div class="row" style="height: 100px">
+  <div class="col-md-2" style="background: #1a2336">
+    <div class="row align-items-center">
+      <div class="col-md-3" style="background: white">
+        <%= current_user.photo %>
+      </div>
+      <div class="col-md-5" style="background: white">
+        <%= current_user.full_name %>
+      </div>
+    </div>
   </div>
-  <div class="col-md-7">
+  <div class="col-md-7" style="background: #4aa6e8">
 
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3" style="background: #4aa6e8">
 
   </div>
 </div>
