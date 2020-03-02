@@ -1,4 +1,5 @@
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
+@import '@fortawesome/fontawesome-free';
 
 .gr-background{
   background-color: #f5f9fa;
@@ -39,6 +40,19 @@
   color: #53a7f5;
 }
 
-.logo-name{
-  
+.display-profile-info{
+  position: relative;
+}
+
+.display-profile-pic{
+  position: absolute;
+  top: 25px;
+  left: 40px;
+}
+
+.display-full-name{
+  position: absolute;
+  top: 30px;
+  left: 95px;
+  color: #6e8699
 }

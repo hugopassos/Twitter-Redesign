@@ -32,3 +32,6 @@ yarn-debug.log*
 
 # Ignore local variables.
 /config/local_env.yml
+
+# Ignore local images
+/public/uploads
