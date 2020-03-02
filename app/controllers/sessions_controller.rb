@@ -1,8 +1,13 @@
 class SessionsController < ApplicationController
-  def new; end
+  include SessionsHelper
+
+  def new
+    redirect_to home_path if logged_in?
+  end
 
   def create
-    if (@user = User.find_by(username: params[:username]))
+    if (@user = User.find_by(username: params[:session][:username]))
+      log_in(@user)
       redirect_to home_path
     else
       flash[:alert] = 'User not found.'

@@ -42,4 +42,16 @@ RSpec.describe User, type: :model do
   		expect(user.errors[:full_name]).to include('is too long (maximum is 50 characters)')
     end
   end
+
+  describe '#photo' do
+    it 'should be automatically created' do
+      expect(user.photo).not_to be_nil
+    end
+  end
+
+  describe '#cover_image' do
+    it 'should be automatically created' do
+      expect(user.cover_image).not_to be_nil
+    end
+  end
 end
