@@ -4,6 +4,10 @@ class User < ApplicationRecord
   mount_uploader :photo, PictureUploader
   mount_uploader :cover_image, PictureUploader
 
+  has_many :opinions
+  has_many :followings
+  has_many :inverse_followings, class_name: 'Following', foreign_key: 'follower_id'
+
   validates :username, presence: true, length: { minimum: 2, maximum: 10 }
   validates :full_name, presence: true, length: { minimum: 2, maximum: 50 }
 
