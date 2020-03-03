@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'followings/create'
+  get 'followings/destroy'
   get 'opinions/index'
   get 'opinions/new'
   get 'opinions/create'
@@ -15,5 +17,5 @@ Rails.application.routes.draw do
 
   resources :users
   resources :opinions
-  resources :followings
+  resources :followings, only: %i[create destroy]
 end

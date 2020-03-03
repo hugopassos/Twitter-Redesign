@@ -15,11 +15,15 @@ module UsersHelper
     current_user.followings.exists?(following_id: user.id)
   end
 
-  def following(user)
+  def following_count(user)
     user.followings.count
   end
 
-  def followers(user)
+  def followers_count(user)
     user.inverse_followings.count
+  end
+
+  def followers(user)
+    User.where(id: User.joins(:followings).where(followings: { following_id: user.id }))
   end
 end

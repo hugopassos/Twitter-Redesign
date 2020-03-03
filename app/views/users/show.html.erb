@@ -20,7 +20,7 @@
       <div class="col-12">
         <p><%= @user.full_name %></p>
         <% if following?(@user) %>
-          <%= button_to 'Unfollow', followings_path(id: @user.id), method: :delete %>
+          <%= button_to 'Unfollow', following_path(id: @user.id), method: :delete %>
         <% elsif @user.id != current_user.id %>
           <%= button_to 'Follow', followings_path(id: @user.id) if @user.id != current_user.id %>
         <% end %>
@@ -30,12 +30,26 @@
         <p>Tweets</p>
       </div>
       <div class="col-4">
-        <%= following(@user) %>
+        <%= following_count(@user) %>
         <p>Following</p>
       </div>
       <div class="col-4">
-        <%= followers(@user) %>
+        <%= followers_count(@user) %>
         <p>Followers</p>
+      </div>
+      <div class="col-12">
+        <p>Followed by</p>
+        <%= followers(@user).each do |u| %>
+          <div class="row">
+            <div class="col-2">
+              <img src="https://lh3.googleusercontent.com/proxy/pFGinnB19hf5synPyKJuy3VBgjDJFZmu99XbfJo2S_sO-VDfGI48lf43ymGhNY0ifPaWHJalOK0xvOPbwaH-od32iH8cgnA9yQzqH1ELq7hHvAknfQ5-KIX9Up0kXYO3lL-UxW-ijQeM8Zq2cCZQQi1CLMflimNTn_qXXg" alt="Logo" width="40" class="rounded-circle">
+            </div>
+            <div class="col-10">
+              <%= u.full_name %>
+            </div>
+          </div>
+          <br>
+        <% end %>
       </div>
     </div>
   </div>
