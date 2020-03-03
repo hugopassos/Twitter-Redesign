@@ -1,0 +1,9 @@
+<div class="">
+  <h3>TWEET SOMETHING</h3>
+  <div class="">
+    <% @opinion = Opinion.new %>
+    <%= form_for @opinion do |f| %>
+      <%= f.text_field :text, class: 'form-control', placeholder: 'Compose new tweet' %><br>
+    <% end %>
+  </div>
+</div>

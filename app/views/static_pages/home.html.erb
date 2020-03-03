@@ -9,9 +9,43 @@
           Tweets
         </div>
       </div>
+      <div class="col-md-12">
+        <%= render 'opinions/new' %>
+      </div>
+      <div class="col-md-12">
+        <div class="row">
+          <% @opinions.each do |o| %>
+            <div class="col-md-1">
+              <img src="https://lh3.googleusercontent.com/proxy/pFGinnB19hf5synPyKJuy3VBgjDJFZmu99XbfJo2S_sO-VDfGI48lf43ymGhNY0ifPaWHJalOK0xvOPbwaH-od32iH8cgnA9yQzqH1ELq7hHvAknfQ5-KIX9Up0kXYO3lL-UxW-ijQeM8Zq2cCZQQi1CLMflimNTn_qXXg" alt="Logo" width="50">
+            </div>
+            <div class="col-md-11">
+              <div class="row">
+                <div class="col-md-12">
+                  <%= o.user.full_name %>
+                </div>
+                <div class="col-md-12">
+                  <%= o.text %>
+                </div>
+              </div>
+              <br>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-md-3">
-    Who to follow
+    <h3>WHO TO FOLLOW</h3>
+    <% @users.each do |u| %>
+      <div class="row">
+        <div class="col-md-2">
+          <img src="https://lh3.googleusercontent.com/proxy/pFGinnB19hf5synPyKJuy3VBgjDJFZmu99XbfJo2S_sO-VDfGI48lf43ymGhNY0ifPaWHJalOK0xvOPbwaH-od32iH8cgnA9yQzqH1ELq7hHvAknfQ5-KIX9Up0kXYO3lL-UxW-ijQeM8Zq2cCZQQi1CLMflimNTn_qXXg" alt="Logo" width="40" class="rounded-circle">
+        </div>
+        <div class="col-md-10">
+          <%= u.full_name %>
+        </div>
+      </div>
+      <br>
+    <% end %>
   </div>
 </div>

@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_201005) do
+ActiveRecord::Schema.define(version: 2020_03_02_185339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "followings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "following_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["following_id"], name: "index_followings_on_following_id"
+    t.index ["user_id", "following_id"], name: "index_followings_on_user_id_and_following_id", unique: true
+    t.index ["user_id"], name: "index_followings_on_user_id"
+  end
+
+  create_table "opinions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_opinions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -24,4 +42,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_201005) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "followings", "users"
+  add_foreign_key "followings", "users", column: "following_id"
+  add_foreign_key "opinions", "users"
 end
