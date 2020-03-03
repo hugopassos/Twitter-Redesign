@@ -14,4 +14,12 @@ module UsersHelper
   def following?(user)
     current_user.followings.exists?(following_id: user.id)
   end
+
+  def following(user)
+    user.followings.count
+  end
+
+  def followers(user)
+    user.inverse_followings.count
+  end
 end

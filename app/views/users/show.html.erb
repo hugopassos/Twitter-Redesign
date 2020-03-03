@@ -25,6 +25,18 @@
           <%= button_to 'Follow', followings_path(id: @user.id) if @user.id != current_user.id %>
         <% end %>
       </div>
+      <div class="col-4">
+        <%= total_tweets(@user) %>
+        <p>Tweets</p>
+      </div>
+      <div class="col-4">
+        <%= following(@user) %>
+        <p>Following</p>
+      </div>
+      <div class="col-4">
+        <%= followers(@user) %>
+        <p>Followers</p>
+      </div>
     </div>
   </div>
 </div>
