@@ -1,9 +1,6 @@
 class OpinionsController < ApplicationController
   include SessionsHelper
 
-  def index
-  end
-
   def new
     @opinion = Opinion.new
   end
@@ -16,15 +13,6 @@ class OpinionsController < ApplicationController
       flash[:alert] = 'Something went wrong'
       redirect_back(fallback_location: root_path)
     end
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private
