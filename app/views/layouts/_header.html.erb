@@ -6,14 +6,14 @@
           <img src="https://ipc.digital/wp-content/uploads/2016/07/icon-user-default.png" alt="Logo" width="50" class="rounded">
         </div>
         <div class="display-full-name">
-          <p style="padding-top: 10px"><%= current_user.full_name %></p>
+          <p style="padding-top: 10px;"><%= link_to current_user.full_name, user_path(id: current_user.id) %></p>
         </div>
       </div>
     </div>
   </div>
   <div class="col-md-7 top-bar">
     <div class="white-logo">
-      <i class="fab fa-twitter align-middle"></i>
+      <a href="<%= home_path %>" class="disable-a-tag"><i class="fab fa-twitter align-middle"></i></a>
     </div>
   </div>
   <div class="col-md-3 top-bar">

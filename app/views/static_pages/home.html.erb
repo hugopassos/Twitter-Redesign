@@ -17,7 +17,7 @@
         </div>
         <div class="row post-tweet-container border rounded mb-3">
           <div class="col-12">
-            <h4>Tweets</h4>
+            <h4 style="color: grey">Tweets</h4>
           </div>
           <br>
           <div class="col-12 border" style="height: 0; margin-top: 10px;"></div>
@@ -44,14 +44,17 @@
     </div>
   </div>
   <div class="col-md-3">
-    <h3>WHO TO FOLLOW</h3>
+    <div class="row home-tabs">
+      <h4 style="padding-top: 20px; padding-left: 10px; color: grey">WHO TO FOLLOW</h4>
+    </div>
+    <div class="col-12 border" style="height: 0; margin-bottom: 20px"></div>
     <% @users.each do |u| %>
-      <div class="row">
+      <div class="row home-tabs">
         <div class="col-md-2">
           <img src="https://ipc.digital/wp-content/uploads/2016/07/icon-user-default.png" alt="Logo" width="40" class="rounded-circle">
         </div>
         <div class="col-md-10">
-          <%= u.full_name %>
+          <%= link_to u.full_name, user_path(id: u.id) %>
         </div>
       </div>
       <br>

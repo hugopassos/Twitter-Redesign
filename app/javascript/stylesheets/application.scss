@@ -62,6 +62,16 @@
   color: #6e8699;
 }
 
+.left-menu{
+  background: #1a2336;
+  height: 100%;
+}
+
+.left-menu-option{
+  margin-top: 0;
+  height: 50px;
+}
+
 .gray-menu{
   color: #6e8699;
 }
@@ -96,6 +106,15 @@
 
 .home-tabs{
   height: 70px;
+}
+
+.disable-a-tag{
+  text-decoration: none;
+  color: #FFF;
+}
+
+.disable-a-tag:hover{
+  color: #FFF;
 }
 
 .tab-option{
