@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Session', type: :feature do
 	before :each do
-		@user = User.create(username:'user', full_name: 'user@mail.com')
+		@user = User.create(username:'hugo', full_name: 'Hugo Passos')
 	end
 
 	context 'Login with existent user' do
