@@ -8,7 +8,7 @@ module UsersHelper
   end
 
   def who_to_follow
-    User.where.not(id: User.joins(:inverse_followings).where(followings: { user_id: current_user.id })).order(created_at: :desc) if !current_user.nil?
+    current_user.not_followed_users if !current_user.nil?
   end
 
   def following?(user)
@@ -24,6 +24,6 @@ module UsersHelper
   end
 
   def followers(user)
-    User.where(id: User.joins(:followings).where(followings: { following_id: user.id }))
+    User.followers(user)
   end
 end

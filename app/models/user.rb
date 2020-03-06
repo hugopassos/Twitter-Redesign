@@ -11,6 +11,14 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { minimum: 2, maximum: 10 }
   validates :full_name, presence: true, length: { minimum: 2, maximum: 50 }
 
+  def not_followed_users
+    User.where.not(id: User.joins(:inverse_followings).where(followings: { user_id: self.id })).order(created_at: :desc)
+  end
+
+  def self.followers(user)
+    User.where(id: User.joins(:followings).where(followings: { following_id: user.id }))
+  end
+
   # def set_default_images
   #   File.open(File.join(Rails.root, 'app', 'assets', 'images', 'default-user_6_0.png')) do |f|
   #     self.photo = f
