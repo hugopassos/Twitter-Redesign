@@ -13,7 +13,12 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    Following.where(user_id: current_user.id, following_id: params[:id]).first.destroy
-    redirect_back(fallback_location: root_path)
+    if @following = (Following.where(user_id: current_user.id, following_id: params[:id]).first)
+      @following.destroy
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:alert] = 'Something went wrong'
+      redirect_back(fallback_location: root_path)
+    end
   end
 end

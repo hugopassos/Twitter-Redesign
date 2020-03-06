@@ -14,6 +14,13 @@ RSpec.describe User, type: :model do
   		expect(user.errors[:username]).to include('can\'t be blank')
     end
 
+    it 'should be unique' do
+      User.create!(username: 'hugo', full_name: 'Hugo Passos')
+      user = User.new(username: 'hugo', full_name: 'Hugo Passos')
+      user.valid?
+      expect(user.errors[:username]).to include('has already been taken')
+    end
+
     it 'should have at least 2 characters' do
       user.username = 'a'
       user.valid?
