@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:user) { User.create(username: 'hugo', full_name: 'Hugo Passos') }
+  let(:followed_user) { User.create(username: 'test', full_name: 'Test') }
+  let(:not_followed_user) { User.create(username: 'test2', full_name: 'Test2') }
+  let(:follow) { user.followings.create(following_id: followed_user.id) }
+  let(:opinion) { user.opinions.create(text: 'opinion') }
 
   describe '#username' do
     it 'should be present' do
@@ -53,5 +57,20 @@ RSpec.describe User, type: :model do
     it 'should be automatically created' do
       expect(user.cover_image).not_to be_nil
     end
+  end
+
+  describe '#not_followed_users' do
+    it 'should return users not followed by the current user' do
+      users = user.not_followed_users
+      # The method not_followed_users will return an Active Record relation containing users not followed + the current users itself
+      expect(users).to contain_exactly(not_followed_user, user)
+      expect(users).not_to contain_exactly(followed_user)
+    end
+  end
+
+  it 'should destroy dependent opinions when a user is destroyed' do
+    expect(user.opinions).to contain_exactly(opinion)
+    user.destroy
+    expect(user.opinions).to be_empty
   end
 end
