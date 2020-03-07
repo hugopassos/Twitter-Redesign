@@ -24,7 +24,7 @@
           <div class="col-md-1">
             <img src="https://ipc.digital/wp-content/uploads/2016/07/icon-user-default.png" alt="Logo" width="50">
           </div>
-          <div class="col-md-11">
+          <div class="col-md-9">
             <div class="row">
               <div class="col-md-12">
                 <%= o.user.full_name %>
@@ -34,6 +34,11 @@
               </div>
             </div>
             <br>
+          </div>
+          <div class="col-md-2">
+            <% if @user == current_user %>
+              <%= button_to 'Delete', opinion_path(o.id), method: :delete %>
+            <% end %>
           </div>
         <% end %>
       </div>

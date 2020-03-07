@@ -15,6 +15,17 @@ class OpinionsController < ApplicationController
     end
   end
 
+  def destroy
+    @opinion = Opinion.find_by(id: params[:id])
+    if @opinion.destroy
+      flash[:notice] = 'Opinion deleted'
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:alert] = 'Something went wrong'
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
 
   def opinion_params

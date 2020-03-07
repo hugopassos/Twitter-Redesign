@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   get '/logout',    to: 'sessions#destroy'
 
   resources :users, except: %i[update destroy]
-  resources :opinions, only: %i[new create]
+  resources :opinions, only: %i[new create destroy]
   resources :followings, only: %i[create destroy]
 end
