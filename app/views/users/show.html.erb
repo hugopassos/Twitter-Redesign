@@ -37,7 +37,7 @@
           </div>
           <div class="col-md-2">
             <% if @user == current_user %>
-              <%= button_to 'Delete', opinion_path(o.id), method: :delete %>
+              <%= button_to 'Delete', opinion_path(o.id), method: :delete, class: 'btn btn-secondary' %>
             <% end %>
           </div>
         <% end %>
@@ -45,18 +45,19 @@
     </div>
   </div>
   <div class="col-md-3">
-    <div class="row">
+    <div class="row mt-3">
       <div class="col-12">
         <img src="https://ipc.digital/wp-content/uploads/2016/07/icon-user-default.png" alt="Logo" width="70" class="rounded-circle" >
       </div>
       <div class="col-12">
         <p><%= @user.full_name %></p>
         <% if following?(@user) %>
-          <%= button_to 'Unfollow', following_path(id: @user.id), method: :delete %>
+          <%= button_to 'Unfollow', following_path(id: @user.id), method: :delete, class: 'btn btn-secondary' %>
         <% elsif @user.id != current_user.id %>
-          <%= button_to 'Follow', followings_path(id: @user.id) if @user.id != current_user.id %>
+          <%= button_to 'Follow', (followings_path(id: @user.id) if @user.id != current_user.id), class: 'btn btn-secondary' %>
         <% end %>
       </div>
+      <div class="col-12 mt-3"></div>
       <div class="col-4">
         <%= total_tweets(@user) %>
         <p>Tweets</p>

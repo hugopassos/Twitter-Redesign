@@ -18,17 +18,22 @@
   </div>
   <div class="col-md-3 top-bar">
     <div class="row">
-      <div class="col-md-3 top-icons">
+      <div class="col-md-3 top-icons text-center">
         <i class="fas fa-pen"></i>
       </div>
-      <div class="col-md-3 top-icons">
+      <div class="col-md-3 top-icons text-center">
         <i class="fas fa-envelope"></i>
       </div>
-      <div class="col-md-3 top-icons">
+      <div class="col-md-3 top-icons text-center">
         <i class="fas fa-search"></i>
       </div>
-      <div class="col-md-3 top-icons">
-        <i class="fas fa-cog"></i>
+      <div class="col-md-3 top-icons top-icons-2 nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-cog"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Logout', logout_path, class: 'dropdown-item pull-left' %>
+        </div>
       </div>
     </div>
   </div>
