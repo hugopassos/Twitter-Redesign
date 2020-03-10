@@ -3,32 +3,37 @@
     <div class="row">
       <div class="display-profile-info">
         <div class="display-profile-pic">
-          <img src="https://lh3.googleusercontent.com/proxy/pFGinnB19hf5synPyKJuy3VBgjDJFZmu99XbfJo2S_sO-VDfGI48lf43ymGhNY0ifPaWHJalOK0xvOPbwaH-od32iH8cgnA9yQzqH1ELq7hHvAknfQ5-KIX9Up0kXYO3lL-UxW-ijQeM8Zq2cCZQQi1CLMflimNTn_qXXg" alt="Logo" width="50" class="rounded">
+          <img src="https://ipc.digital/wp-content/uploads/2016/07/icon-user-default.png" alt="Logo" width="50" class="rounded">
         </div>
         <div class="display-full-name">
-          <p style="padding-top: 10px"><%= current_user.full_name %></p>
+          <p style="padding-top: 10px;"><%= link_to current_user.full_name, user_path(id: current_user.id) %></p>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-7" style="background: #4aa6e8">
-    <div class="">
-      <i class="fab fa-twitter"></i>
+  <div class="col-md-7 top-bar">
+    <div class="white-logo">
+      <a href="<%= home_path %>" class="disable-a-tag"><i class="fab fa-twitter align-middle"></i></a>
     </div>
   </div>
-  <div class="col-md-3" style="background: #4aa6e8">
+  <div class="col-md-3 top-bar">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 top-icons text-center">
         <i class="fas fa-pen"></i>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 top-icons text-center">
         <i class="fas fa-envelope"></i>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 top-icons text-center">
         <i class="fas fa-search"></i>
       </div>
-      <div class="col-md-3">
-        <i class="fas fa-cog"></i>
+      <div class="col-md-3 top-icons top-icons-2 nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-cog"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Logout', logout_path, class: 'dropdown-item pull-left' %>
+        </div>
       </div>
     </div>
   </div>

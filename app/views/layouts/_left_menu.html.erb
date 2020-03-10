@@ -1,26 +1,26 @@
-<div class="row gray-menu" style="background: #1a2336">
-  <div class="col-md-6">
-    <div class="">
+<div class="row gray-menu left-menu">
+  <div class="col-md-6 following-top border-top border-bottom border-dark">
+    <div class="text-center white-font-count">
       <%= show_following %>
     </div>
-    <div class="">
+    <div class="text-center">
       Following
     </div>
   </div>
-  <div class="col-md-6">
-    <div class="">
+  <div class="col-md-6 following-top border-top border-bottom border-left border-dark">
+    <div class="text-center white-font-count">
       <%= show_followers %>
     </div>
-    <div class="">
+    <div class="text-center">
       Followers
     </div>
   </div>
-  <div class="col-md-12">
+  <div class="col-12 left-menu-option">
     <i class="fas fa-home"></i>
-    Home
+    <a href="<%= home_path %>">Home</a>
   </div>
-  <div class="col-md-12">
+  <div class="col-12 left-menu-option">
     <i class="fas fa-user-alt"></i>
-    Profile
+    <a href="<%= user_path(id: current_user.id) %>">Profile</a>
   </div>
 </div>

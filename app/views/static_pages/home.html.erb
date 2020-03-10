@@ -1,22 +1,31 @@
-<div class="row">
+<div class="row grey-background">
   <div class="col-md-2">
     <%= render 'layouts/left_menu' %>
   </div>
   <div class="col-md-7">
     <div class="row">
-      <div class="home-tabs col-md-12">
-        <div class="tab-option">
-          Tweets
+      <div class="home-tabs col-md-12 border-bottom border-right">
+        <div class="row h-100">
+          <div class="col-2" style="text-align: center">
+            <a class="tab-option">TWEETS</a>
+          </div>
         </div>
       </div>
-      <div class="col-md-12">
-        <%= render 'opinions/new' %>
-      </div>
-      <div class="col-md-12">
-        <div class="row">
+      <div class="col-md-12 border-right">
+        <div class="post-tweet-container border rounded">
+          <%= render 'opinions/new' %>
+        </div>
+        <div class="row post-tweet-container border rounded mb-3">
+          <div class="col-12">
+            <h4 style="color: grey">Tweets</h4>
+          </div>
+          <br>
+          <div class="col-12 border" style="height: 0; margin-top: 10px;"></div>
+          <br>
+          <br>
           <% @opinions.each do |o| %>
             <div class="col-md-1">
-              <img src="https://lh3.googleusercontent.com/proxy/pFGinnB19hf5synPyKJuy3VBgjDJFZmu99XbfJo2S_sO-VDfGI48lf43ymGhNY0ifPaWHJalOK0xvOPbwaH-od32iH8cgnA9yQzqH1ELq7hHvAknfQ5-KIX9Up0kXYO3lL-UxW-ijQeM8Zq2cCZQQi1CLMflimNTn_qXXg" alt="Logo" width="50">
+              <img src="https://ipc.digital/wp-content/uploads/2016/07/icon-user-default.png" alt="Logo" width="50">
             </div>
             <div class="col-md-11">
               <div class="row">
@@ -35,17 +44,19 @@
     </div>
   </div>
   <div class="col-md-3">
-    <h3>WHO TO FOLLOW</h3>
+    <div class="row home-tabs">
+      <h4 style="padding-top: 20px; padding-left: 10px; color: grey">WHO TO FOLLOW</h4>
+    </div>
+    <div class="col-12 border" style="height: 0; margin-bottom: 20px"></div>
     <% @users.each do |u| %>
-      <div class="row">
+      <div class="row home-tabs">
         <div class="col-md-2">
-          <img src="https://lh3.googleusercontent.com/proxy/pFGinnB19hf5synPyKJuy3VBgjDJFZmu99XbfJo2S_sO-VDfGI48lf43ymGhNY0ifPaWHJalOK0xvOPbwaH-od32iH8cgnA9yQzqH1ELq7hHvAknfQ5-KIX9Up0kXYO3lL-UxW-ijQeM8Zq2cCZQQi1CLMflimNTn_qXXg" alt="Logo" width="40" class="rounded-circle">
+          <img src="https://ipc.digital/wp-content/uploads/2016/07/icon-user-default.png" alt="Logo" width="40" class="rounded-circle">
         </div>
         <div class="col-md-10">
-          <%= u.full_name %>
+          <%= link_to u.full_name, user_path(id: u.id) %>
         </div>
       </div>
-      <br>
     <% end %>
   </div>
 </div>

@@ -3,7 +3,6 @@ class StaticPagesController < ApplicationController
   before_action :load_who_to_follow, only: :home
 
   include SessionsHelper
-  include UsersHelper
 
   def home
     redirect_to login_path if !logged_in?
@@ -16,6 +15,6 @@ class StaticPagesController < ApplicationController
   end
 
   def load_who_to_follow
-    @users = who_to_follow.reject{ |user| user == current_user } if !current_user.nil?
+    @users = current_user.not_followed_users.reject{ |user| user == current_user } if !current_user.nil?
   end
 end

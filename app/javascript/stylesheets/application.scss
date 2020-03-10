@@ -40,6 +40,11 @@
   color: #53a7f5;
 }
 
+.top-bar{
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(74,175,232,1) 0%, rgba(63,173,235,1) 56%, rgba(60,175,236,1) 95%, rgba(74,166,232,1) 98%);
+}
+
 .display-profile-info{
   position: relative;
 }
@@ -57,6 +62,77 @@
   color: #6e8699;
 }
 
+.left-menu{
+  background: #1a2336;
+  height: 100%;
+}
+
+.left-menu-option{
+  margin-top: 0;
+  height: 50px;
+}
+
 .gray-menu{
   color: #6e8699;
+}
+
+.following-top{
+  height: 70px;
+  background: #1a2336;
+  padding-top: 8px;
+}
+
+.white-font-count{
+  font-size: 20px;
+  color: #E3E3E3;
+}
+
+.white-logo{
+  color: #FFF;
+  font-size: 40px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.top-icons{
+  opacity: .5;
+  font-size: 20px;
+  padding-top: 32px;
+}
+
+.top-icons-2{
+  padding-top: 24px;
+}
+
+.grey-background{
+  background: #edf2f5;
+}
+
+.home-tabs{
+  height: 70px;
+}
+
+.disable-a-tag{
+  text-decoration: none;
+  color: #FFF;
+}
+
+.disable-a-tag:hover{
+  color: #FFF;
+}
+
+.tab-option{
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #999;
+}
+
+.post-tweet-container{
+  background: #FFF;
+  padding: 20px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
